@@ -2,6 +2,6 @@
 for fdig in range(10):
     for sdig in range(fdig + 1, 10):
         if (fdig == 8 and sdig == 9):
-            print(f"{fdig:d}{sdig:d}")
+            print("{:d}{:d}".format(fdig, sdig))
         else:
-            print(f"{fdig:d}{sdig:d}, ", end="")
+            print("{:d}{:d}, ".format(fdig, sdig), end="")

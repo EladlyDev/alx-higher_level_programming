@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 def out(i, stopat):
     if i == stopat:
-        return f"{i:02d}\n"
+        return "{:02d}\n".format(i)
     else:
-        return f"{i:02d}, "
+        return "{:02d}, ".format(i)
 
 
 for i in range(100):
