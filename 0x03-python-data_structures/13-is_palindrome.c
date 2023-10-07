@@ -1,32 +1,28 @@
 #include "lists.h"
 int is_palindrome(listint_t **head)
 {
-	int len, half, i;
-	listint_t *sechalf = *head;
-	int *firsthalf;
+	int *arr, len, i;
+	listint_t *tmp = *head;
 
 	len = linked_length(*head);
-	half = len / 2;
-
 	if (len == 0)
 		return (1);
-
-	firsthalf = malloc(sizeof(int) * half);
-	for (i = 0; i < half; i++)
+	arr = malloc(sizeof(int) * len);
+	for (i = 0; tmp; i++)
 	{
-		firsthalf[i] = sechalf->n;
-		sechalf = sechalf->next;
+		arr[i] = tmp->n;
+		tmp = tmp->next;
 	}
-	for (i = half - 1; i > 0; i--)
+	for (i = 0, tmp = *head, len--; tmp; tmp = tmp->next, i++, len--)
 	{
-		if (firsthalf[i] != sechalf->n)
+		if (tmp->n != arr[len])
 		{
-			free(firsthalf);
+			free(arr);
 			return (-1);
 		}
-		sechalf = sechalf->next;
 	}
-	free(firsthalf);
+
+	free(arr);
 	return (1);
 }
 
