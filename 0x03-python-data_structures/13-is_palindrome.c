@@ -10,8 +10,6 @@ int is_palindrome(listint_t **head)
 
 	if (len == 0)
 		return (1);
-	else if (len % 2 != 0)
-		return (-1);
 
 	firsthalf = malloc(sizeof(int) * half);
 	for (i = 0; i < half; i++)
