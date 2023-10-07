@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stddef.h>
+#include <stdlib.h>
 
 /**
  * struct listint_s - singly linked list
@@ -24,5 +25,5 @@ void free_listint(listint_t *head);
 
 int is_palindrome(listint_t **head);
 int linked_length(listint_t *head);
-	
+
 #endif /* LISTS_H */

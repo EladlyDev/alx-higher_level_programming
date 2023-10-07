@@ -1,35 +1,36 @@
 #include "lists.h"
 int is_palindrome(listint_t **head)
 {
-	int len, half, sum1, sum2, i;
-	listint_t *tmp = *head;
+	int len, half, i;
+	listint_t *sechalf = *head;
+	int *firsthalf;
 
 	len = linked_length(*head);
 	half = len / 2;
-	sum1 = sum2 = i = 0;
 
 	if (len == 0)
 		return (1);
 	else if (len % 2 != 0)
 		return (-1);
 
-	while (tmp)
+	firsthalf = malloc(sizeof(int) * half);
+	for (i = 0; i < half; i++)
 	{
-		i++;
-		if (i <= half)
-			sum1 += tmp->n;
-		else if (i > half)
-			sum2 += tmp->n;
-		tmp = tmp->next;
+		firsthalf[i] = sechalf->n;
+		sechalf = sechalf->next;
 	}
-	if (sum1 == sum2)
-		return (1);
-	else
-		return (-1);
+	for (i = half - 1; i > 0; i--)
+	{
+		if (firsthalf[i] != sechalf->n)
+		{
+			free(firsthalf);
+			return (-1);
+		}
+		sechalf = sechalf->next;
+	}
+	free(firsthalf);
+	return (1);
 }
-
-
-
 
 
 int linked_length(listint_t *head)
