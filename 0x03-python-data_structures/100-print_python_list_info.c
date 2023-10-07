@@ -15,29 +15,9 @@ void print_python_list_info(PyObject *p)
 	printf("[*] Allocated = %d\n", (int)allocsize);
 	for (i = 0; i < size; i++)
 	{
-		char *type = (char *)Py_TYPE(PyList_GetItem(p, i));
-		char *out;
+		PyObject *element = PyList_GetItem(p, i);
+		const char *type = Py_TYPE(element)->tp_name;
 
-		switch (type[0])
-		{
-		case 'C':
-			out = "int";
-			break;
-		case 'J':
-			out = "str";
-			break;
-		case '2':
-			out = "float";
-			break;
-		case 'G':
-			out = "tuple";
-			break;
-		case '\'':
-			out = "list";
-			break;
-		default:
-			out = type;
-		}
-		printf("Element %d: %s\n", i, out);
+		printf("Element %d: %s\n", i, type);
 	}
 }
