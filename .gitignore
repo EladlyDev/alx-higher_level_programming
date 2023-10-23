@@ -1,5 +1,9 @@
+*.so
+a.out
+__*
 *.swp
 *.o
 *~
 *.gch
 *#
+*main*
