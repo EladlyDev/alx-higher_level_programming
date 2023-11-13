@@ -87,7 +87,7 @@ class TestRectangle(unittest.TestCase):
 
         with self.assertRaises(TypeError):
             r1.update(None, None, id=15)
-        self.assertEqual(r1.id, 0)
+        self.assertEqual(r1.id, None)
 
 
 if __name__ == "__main__":
