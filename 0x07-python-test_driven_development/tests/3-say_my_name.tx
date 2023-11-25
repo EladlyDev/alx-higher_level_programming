@@ -1,0 +1,28 @@
+A doctest for ``say_my_name`` function
+=========================
+
+Importing
+--------------
+	>>> smyn = __import__("3-say_my_name").say_my_name
+
+Basic Test
+--------------
+	>>> smyn("John", "Smith") #doctest: +REPORT_NDIFF
+	My name is John Smith
+	>>> smyn("Walter", "White") #doctest: +REPORT_NDIFF
+	My name is Walter White
+	>>> smyn("Bob") #doctest: +REPORT_NDIFF
+	My name is Bob
+
+Inappropriate input
+--------------
+	>>> smyn(12, 13)
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
+	>>> smyn("Bob", 13)
+	Traceback (most recent call last):
+	...
+	TypeError: last_name must be a string
+	>>> smyn("") #doctest: +REPORT_NDIFF
+	My name is

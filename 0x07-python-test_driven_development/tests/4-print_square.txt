@@ -1,0 +1,47 @@
+A doctest for the ``print_square`` function
+===============
+
+Importing:
+-------------
+	>>> ps = __import__("4-print_square").print_square
+
+Basic Test:
+-------------
+	>>> ps(4)
+	####
+	####
+	####
+	####
+	>>> ps(10)
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	>>> ps(0)
+	>>> ps(1)
+	#
+
+Inappropriate input:
+--------------
+	>>> ps("ay")
+	Traceback (most recent call last):
+	...
+	TypeError: size must be an integer
+	>>> ps(-1)
+	Traceback (most recent call last):
+	...
+	ValueError: size must be >= 0
+	>>> ps(-9.1)
+	Traceback (most recent call last):
+	...
+	TypeError: size must be an integer
+	>>> ps(5.0)
+	Traceback (most recent call last):
+	...
+	TypeError: size must be an integer
