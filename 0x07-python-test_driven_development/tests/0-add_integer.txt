@@ -4,6 +4,8 @@ This is doctest for the ``add_integer`` function
 Importing the function from the file:
 ----------------
 	>>> add_integer = __import__("0-add_integer").add_integer
+	>>> import sys
+	>>> import math
 
 Checking it with simple operations
 ----------------
@@ -43,3 +45,13 @@ Checking float values
 	100000000000000000001
 	>>> add_integer(1e20, 1e20)
 	200000000000000000000
+	>>> type(add_integer(5.5, 10)) is int
+	True
+	>>> add_integer(sys.float_info.max * 1000, sys.float_info.max * 100)
+	Traceback (most recent call last):
+	...
+	OverflowError: cannot convert float infinity to integer
+	>>> add_integer(math.nan, 5)
+	Traceback (most recent call last):
+	...
+	ValueError: cannot convert float NaN to integer
