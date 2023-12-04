@@ -1,0 +1,34 @@
+A doctest for the ``print_sorted`` function
+==============
+
+Importing:
+-----------
+	>>> MyList = __import__("1-my_list").MyList
+
+Basic Test:
+-----------
+	>>> mylist = MyList()
+	>>> mylist.append(1)
+	>>> mylist.append(4)
+	>>> mylist.append(2)
+	>>> mylist.append(3)
+	>>> mylist.append(5)
+	>>> print(mylist)
+	[1, 4, 2, 3, 5]
+	>>> mylist.print_sorted()
+	[1, 2, 3, 4, 5]
+	>>> print(mylist)
+	[1, 4, 2, 3, 5]
+	>>> mylist = MyList()
+	>>> print(mylist)
+	[]
+	>>> mylist.print_sorted()
+	[]
+	>>> mylist.append(0)
+	>>> mylist.append(1)
+	>>> mylist.append(-1)
+	>>> mylist.append(0.5)
+	>>> print(mylist)
+	[0, 1, -1, 0.5]
+	>>> mylist.print_sorted()
+	[-1, 0, 0.5, 1]
