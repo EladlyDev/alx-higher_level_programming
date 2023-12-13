@@ -35,10 +35,18 @@ class TestRectangle(unittest.TestCase):
             Rectangle(4, "hi")
         with self.assertRaises(TypeError):
             Rectangle(4, 4, "hi")
+        with self.assertRaises(TypeError):
+            Rectangle(1, 2, 3, "4")
         with self.assertRaises(ValueError):
             Rectangle(0, 1)
         with self.assertRaises(ValueError):
             Rectangle(-1, 1)
+        with self.assertRaises(ValueError):
+            Rectangle(1, -2)
+        with self.assertRaises(ValueError):
+            Rectangle(1, 2, 3, -4)
+        with self.assertRaises(ValueError):
+            Rectangle(1, 0)
         with self.assertRaises(ValueError):
             Rectangle(1, 1, -1)
 
@@ -89,6 +97,46 @@ class TestRectangle(unittest.TestCase):
             r1.update(None, None, id=15)
         self.assertEqual(r1.id, None)
 
+    def test_str(self):
+        print(Rectangle(1, 2, 3))
+        print(Rectangle(1, 2, 3, 4).__str__())
+
+    def test_display(self):
+        r1 = Rectangle(1, 2)
+        r1.display()
+
+        r2 = Rectangle(1, 2, 3)
+        r2.display()
+
+        r1 = Rectangle(1, 2, 3, 4)
+        r1.display()
+
+    def test_to_disctionary(self):
+        r1 = Rectangle(1, 2, 3)
+        r1.to_dictionary()
+
+    def test_create(self):
+        r1 = Rectangle.create(**{'id': 89})
+        self.assertEqual(r1.id, 89)
+
+        r2 = Rectangle.create(**{'id': 89, 'width': 1})
+        self.assertEqual(r2.width, 1)
+
+        r3 = Rectangle.create(**{'id': 89, 'width': 1, 'height': 2})
+        self.assertEqual(r3.height, 2)
+
+        r4 = Rectangle.create(**{'id': 89, 'width': 1, 'height': 2, 'x': 3})
+        self.assertEqual(r4.x, 3)
+
+        r5 = Rectangle.create(**{'id': 89, 'width': 1, 'height': 2, 'x': 3,
+                                 'y': 4})
+        self.assertEqual(r5.y, 4)
+
+    def test_save_to_file(self):
+        r1 = Rectangle(1, 2, 3, 4)
+        r1.save_to_file(None)
+        r1.save_to_file([])
+        r1.save_to_file([Rectangle(1, 2)])
 
 if __name__ == "__main__":
     unittest.main()
