@@ -3,8 +3,8 @@
 const argv = process.argv;
 let x = parseInt(argv[2]);
 
-if (x & x > 0) {
-  while (x) {
+if (x) {
+  while (x > 0) {
     console.log('C is fun');
     x--;
   }
