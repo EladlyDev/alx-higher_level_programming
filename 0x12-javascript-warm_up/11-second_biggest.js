@@ -7,12 +7,12 @@ if (argv.length > 3) {
   let biggest = parseInt(argv[i]);
   let sbiggest = parseInt(argv[++i]);
   let curr = parseInt(argv[i]);
-  while (curr) {
+  while (argv[i]) {
     curr = parseInt(argv[i]);
     if (curr > biggest) {
       sbiggest = biggest;
       biggest = curr;
-    }
+    } else if (curr > sbiggest) { sbiggest = curr; }
     i++;
   }
   console.log(sbiggest);
