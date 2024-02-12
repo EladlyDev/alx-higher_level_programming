@@ -2,7 +2,7 @@
 
 const argv = process.argv;
 let size = parseInt(argv[2]);
-const out = (size >= 0) ? 'X'.repeat(size) : "";
+const out = (size >= 0) ? 'X'.repeat(size) : '';
 
 if (size) {
   while (size > 0) {
