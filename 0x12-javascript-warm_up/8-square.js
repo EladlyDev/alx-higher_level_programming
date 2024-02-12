@@ -9,4 +9,4 @@ if (size) {
     console.log(out);
     size--;
   }
-} else { console.log('Missing number of occurrences'); }
+} else { console.log('Missing size'); }
