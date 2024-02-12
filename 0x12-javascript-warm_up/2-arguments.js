@@ -1,7 +1,6 @@
 #!/usr/bin/node
 
-const argv = require('node:process').argv;
-const arglen = argv.length;
+const arglen = process.argv.length;
 
 if (arglen > 3) {
   console.log('Arguments found');
