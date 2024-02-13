@@ -1,11 +1,12 @@
 #!/usr/bin/node
 
-const fs = require('node:fs');
-const args = require('node:process').argv;
+const fs = require('fs');
+const args = process.argv;
 
 if (args.length === 5) {
-  const f1Data = fs.readFileSync(args[2], 'utf-8');
-  const f2Data = fs.readFileSync(args[3], 'utf-8');
-  const out = f1Data + f2Data;
+  let out = fs.readFileSync(args[2], 'utf8');
+  out += fs.readFileSync(args[3], 'utf8');
   fs.writeFileSync(args[4], out);
+} else {
+  console.log('Usage: sourcefile1 sourcefile2 destfile');
 }
